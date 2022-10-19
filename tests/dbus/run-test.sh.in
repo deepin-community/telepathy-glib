@@ -1,0 +1,37 @@
+#!/bin/sh
+
+script_fullname=`readlink -e "@tpglibtestsdir@/run-test.sh"`
+if [ `readlink -e "$0"` != "$script_fullname" ] ; then
+  echo "This script is meant to be installed at $script_fullname"
+  exit 1
+fi
+
+XDG_DATA_DIRS=@tpglibtestsdir@:$XDG_DATA_DIRS
+export XDG_DATA_DIRS
+G_SLICE=debug-blocks
+export G_SLICE
+G_DEBUG=fatal_warnings,fatal_criticals
+export G_DEBUG
+libexec=@libexec@
+export libexec
+TP_TESTS_SERVICES_DIR=@tpglibtestsdir@/dbus-1/services
+export TP_TESTS_SERVICES_DIR
+GIO_USE_VFS=local
+export GIO_USE_VFS
+GSETTINGS_BACKEND=memory
+export GSETTINGS_BACKEND
+DBUS_SESSION_BUS_ADDRESS=this-is-clearly-not-valid
+export DBUS_SESSION_BUS_ADDRESS
+
+if [ -n "$1" ] ; then
+  list="$1"
+else
+  echo "Usage: $0 testname"
+  exit 1
+fi
+
+for i in $list ; do 
+  echo "Testing $i"
+  @tpglibtestsdir@/tools/test-wrapper.sh @tpglibtestsdir@/$i
+done
+
