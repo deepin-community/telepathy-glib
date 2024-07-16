@@ -1,2 +1,3 @@
-0001-Don-t-use-the-same-test-name-for-multiple-tests.patch
-python2-shebang.patch
+python3-shebang.patch
+0002-test-make-test-cm-accepted-with-newer-GLib.patch
+0003-Port-examples-to-python-3-retaining-compatibility.patch
