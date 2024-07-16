@@ -1,0 +1,11 @@
+Description: Point shebang to python3
+Author: Sebastian Ramacher <sramacher@debian.org>
+
+--- a/tests/all-errors-documented.py
++++ b/tests/all-errors-documented.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python3
+ # Check if all the errors have been added to
+ # docs/reference/telepathy-glib-sections.txt
+ 

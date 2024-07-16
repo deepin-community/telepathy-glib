@@ -4,9 +4,8 @@ Priority: optional
 Maintainer: Debian Telepathy maintainers <pkg-telepathy-maintainers@lists.alioth.debian.org>
 Uploaders: Sjoerd Simons <sjoerd@debian.org>,
            Laurent Bigonville <bigon@debian.org>,
-           Adam Conrad <adconrad@0c3.net>,
            Emilio Pozuelo Monfort <pochu@debian.org>
-Build-Depends: dbus,
+Build-Depends: dpkg-dev (>= 1.22.5), dbus,
                debhelper-compat (= 13),
                gir1.2-glib-2.0,
                gobject-introspection (>= 1.31.0-2~),
@@ -15,17 +14,20 @@ Build-Depends: dbus,
                libdbus-glib-1-dev (>= 0.90),
                libgirepository1.0-dev (>= 0.9.6),
                libglib2.0-dev (>= 2.36),
-               pkg-config,
-               python2,
+               pkgconf,
+               python3,
                valac (>= 0.16),
                xsltproc
 Build-Depends-Indep: libdbus-glib-1-doc <!nodoc>, libglib2.0-doc <!nodoc>
-Standards-Version: 4.5.1
+Standards-Version: 4.6.1
 Vcs-Git: https://salsa.debian.org/telepathy-team/telepathy-glib.git
 Vcs-Browser: https://salsa.debian.org/telepathy-team/telepathy-glib
 Homepage: https://telepathy.freedesktop.org/wiki/
 
-Package: libtelepathy-glib0
+Package: libtelepathy-glib0t64
+Provides: ${t64:Provides}
+Replaces: libtelepathy-glib0
+Breaks: libtelepathy-glib0 (<< ${source:Version})
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Pre-Depends: ${misc:Pre-Depends}
@@ -42,14 +44,15 @@ Description: Telepathy framework - GLib library
 Package: libtelepathy-glib-dev
 Architecture: any
 Section: libdevel
-Depends: libtelepathy-glib0 (= ${binary:Version}),
+Depends: libtelepathy-glib0t64 (= ${binary:Version}),
          gir1.2-telepathyglib-0.12 (= ${binary:Version}),
          libglib2.0-dev (>= 2.32),
          libdbus-1-dev (>= 0.95),
          libdbus-glib-1-dev (>= 0.90),
-         pkg-config,
+         pkgconf,
          ${misc:Depends}
 Suggests: libtelepathy-glib-doc
+Multi-Arch: same
 Description: GLib Telepathy connection manager library (headers)
  This package contains development files for telepathy-glib, a GLib-based
  library for Telepathy components.
@@ -69,6 +72,7 @@ Section: doc
 Depends: ${misc:Depends}
 Suggests: devhelp
 Build-Profiles: <!nodoc>
+Multi-Arch: foreign
 Description: GLib Telepathy library (documentation)
  This package contains HTML documentation for telepathy-glib, a GLib-based
  library for Telepathy components.

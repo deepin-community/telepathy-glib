@@ -2,22 +2,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>The TpSvc* interfaces</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<title>The TpSvc* interfaces: telepathy-glib API Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="telepathy-glib API Reference Manual">
 <link rel="up" href="ch-service-dbus.html" title="Service-side D-Bus interfaces">
 <link rel="prev" href="ch-service-dbus.html" title="Service-side D-Bus interfaces">
 <link rel="next" href="telepathy-glib-svc-generic.html" title="Generic service-side interfaces">
-<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.32 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2"><tr valign="middle">
-<td><a accesskey="p" href="ch-service-dbus.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
-<td><a accesskey="u" href="ch-service-dbus.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
-<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
-<th width="100%" align="center">telepathy-glib API Reference Manual</th>
-<td><a accesskey="n" href="telepathy-glib-svc-generic.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch-service-dbus.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="ch-service-dbus.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="telepathy-glib-svc-generic.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
 <a name="telepathy-glib-svc"></a><div class="titlepage"></div>
@@ -28,7 +28,7 @@
     </span></h2>
 <p>The TpSvc* interfaces — How to export Telepathy objects</p>
 </td>
-<td valign="top" align="right"></td>
+<td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
 <p>
     The GInterfaces whose names start with TpSvc are generated automatically
@@ -60,14 +60,14 @@
 6
 7
 8</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">stream_handler_iface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="kt">void</span> <span class="n">stream_handler_iface_init</span> <span class="p">(</span><span class="n">gpointer</span><span class="p">,</span> <span class="n">gpointer</span><span class="p">);</span>
 
-<span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-DEFINE-TYPE-WITH-CODE:CAPS">G_DEFINE_TYPE_WITH_CODE</a></span><span class="symbol">(</span><span class="normal">GabbleMediaStream</span><span class="symbol">,</span>
-<span class="normal">    gabble_media_stream</span><span class="symbol">,</span>
-<span class="normal">    <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-OBJECT:CAPS">G_TYPE_OBJECT</a></span><span class="symbol">,</span>
-<span class="normal">    </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS">G_IMPLEMENT_INTERFACE</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">TP_TYPE_SVC_MEDIA_STREAM_HANDLER</span><span class="symbol">,</span>
-<span class="normal">      stream_handler_iface_init</span><span class="symbol">)</span>
-<span class="normal">    </span><span class="symbol">)</span></pre></td>
+<span class="n">G_DEFINE_TYPE_WITH_CODE</span><span class="p">(</span><span class="n">GabbleMediaStream</span><span class="p">,</span>
+    <span class="n">gabble_media_stream</span><span class="p">,</span>
+    <span class="n">G_TYPE_OBJECT</span><span class="p">,</span>
+    <span class="n">G_IMPLEMENT_INTERFACE</span> <span class="p">(</span><span class="n">TP_TYPE_SVC_MEDIA_STREAM_HANDLER</span><span class="p">,</span>
+      <span class="n">stream_handler_iface_init</span><span class="p">)</span>
+    <span class="p">)</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -111,29 +111,29 @@
 21
 22
 23</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="comment">/* in header files */</span>
-<span class="type">void</span><span class="normal"> </span><span class="function">conn_aliasing_iface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">);</span>
-<span class="type">void</span><span class="normal"> </span><span class="function">conn_avatars_iface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">);</span>
-<span class="type">void</span><span class="normal"> </span><span class="function">conn_presence_iface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="cm">/* in header files */</span>
+<span class="kt">void</span> <span class="nf">conn_aliasing_iface_init</span> <span class="p">(</span><span class="n">gpointer</span><span class="p">,</span> <span class="n">gpointer</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">conn_avatars_iface_init</span> <span class="p">(</span><span class="n">gpointer</span><span class="p">,</span> <span class="n">gpointer</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">conn_presence_iface_init</span> <span class="p">(</span><span class="n">gpointer</span><span class="p">,</span> <span class="n">gpointer</span><span class="p">);</span>
 
-<span class="comment">/* in gabble-connection.c */</span>
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">conn_iface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">);</span>
-<span class="keyword">static</span><span class="normal"> </span><span class="type">void</span><span class="normal"> </span><span class="function">capabilities_iface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="normal"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">,</span><span class="normal"> <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer">gpointer</a></span><span class="symbol">);</span>
+<span class="cm">/* in gabble-connection.c */</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">conn_iface_init</span> <span class="p">(</span><span class="n">gpointer</span><span class="p">,</span> <span class="n">gpointer</span><span class="p">);</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="n">capabilities_iface_init</span> <span class="p">(</span><span class="n">gpointer</span><span class="p">,</span> <span class="n">gpointer</span><span class="p">);</span>
 
-<span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-DEFINE-TYPE-WITH-CODE:CAPS">G_DEFINE_TYPE_WITH_CODE</a></span><span class="symbol">(</span><span class="normal">GabbleConnection</span><span class="symbol">,</span>
-<span class="normal">    gabble_connection</span><span class="symbol">,</span>
-<span class="normal">    TP_TYPE_BASE_CONNECTION</span><span class="symbol">,</span>
-<span class="normal">    </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS">G_IMPLEMENT_INTERFACE</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">TP_TYPE_SVC_CONNECTION</span><span class="symbol">,</span>
-<span class="normal">      conn_iface_init</span><span class="symbol">);</span>
-<span class="normal">    </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS">G_IMPLEMENT_INTERFACE</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">TP_TYPE_SVC_CONNECTION_INTERFACE_ALIASING</span><span class="symbol">,</span>
-<span class="normal">      conn_aliasing_iface_init</span><span class="symbol">);</span>
-<span class="normal">    </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS">G_IMPLEMENT_INTERFACE</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">TP_TYPE_SVC_CONNECTION_INTERFACE_AVATARS</span><span class="symbol">,</span>
-<span class="normal">      conn_avatars_iface_init</span><span class="symbol">);</span>
-<span class="normal">    </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS">G_IMPLEMENT_INTERFACE</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">TP_TYPE_SVC_CONNECTION_INTERFACE_CAPABILITIES</span><span class="symbol">,</span>
-<span class="normal">      capabilities_init</span><span class="symbol">);</span>
-<span class="normal">    </span><span class="function"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-IMPLEMENT-INTERFACE:CAPS">G_IMPLEMENT_INTERFACE</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">TP_TYPE_SVC_CONNECTION_INTERFACE_PRESENCE</span><span class="symbol">,</span>
-<span class="normal">      conn_presence_iface_init</span><span class="symbol">);</span>
-<span class="normal">    </span><span class="symbol">)</span></pre></td>
+<span class="n">G_DEFINE_TYPE_WITH_CODE</span><span class="p">(</span><span class="n">GabbleConnection</span><span class="p">,</span>
+    <span class="n">gabble_connection</span><span class="p">,</span>
+    <span class="n">TP_TYPE_BASE_CONNECTION</span><span class="p">,</span>
+    <span class="n">G_IMPLEMENT_INTERFACE</span> <span class="p">(</span><span class="n">TP_TYPE_SVC_CONNECTION</span><span class="p">,</span>
+      <span class="n">conn_iface_init</span><span class="p">);</span>
+    <span class="n">G_IMPLEMENT_INTERFACE</span> <span class="p">(</span><span class="n">TP_TYPE_SVC_CONNECTION_INTERFACE_ALIASING</span><span class="p">,</span>
+      <span class="n">conn_aliasing_iface_init</span><span class="p">);</span>
+    <span class="n">G_IMPLEMENT_INTERFACE</span> <span class="p">(</span><span class="n">TP_TYPE_SVC_CONNECTION_INTERFACE_AVATARS</span><span class="p">,</span>
+      <span class="n">conn_avatars_iface_init</span><span class="p">);</span>
+    <span class="n">G_IMPLEMENT_INTERFACE</span> <span class="p">(</span><span class="n">TP_TYPE_SVC_CONNECTION_INTERFACE_CAPABILITIES</span><span class="p">,</span>
+      <span class="n">capabilities_init</span><span class="p">);</span>
+    <span class="n">G_IMPLEMENT_INTERFACE</span> <span class="p">(</span><span class="n">TP_TYPE_SVC_CONNECTION_INTERFACE_PRESENCE</span><span class="p">,</span>
+      <span class="n">conn_presence_iface_init</span><span class="p">);</span>
+    <span class="p">)</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -159,9 +159,9 @@
         <td class="listing_lines" align="right"><pre>1
 2
 3</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="type">void</span><span class="normal"> </span><span class="symbol">(*</span><span class="normal"><a href="telepathy-glib-svc-media-interfaces.html#tp-svc-media-session-handler-error-impl">tp_svc_media_session_handler_error_impl</a></span><span class="symbol">)</span>
-<span class="normal">  </span><span class="symbol">(</span><span class="usertype">TpSvcMediaSessionHandler</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">guint</span><span class="normal"> errno</span><span class="symbol">,</span><span class="normal"> </span><span class="keyword">const</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">message</span><span class="symbol">,</span>
-<span class="normal">   </span><span class="usertype">DBusGMethodInvocation</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">tp_svc_media_session_handler_error_impl</span><span class="p">)</span>
+  <span class="p">(</span><span class="n">TpSvcMediaSessionHandler</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">guint</span> <span class="n">errno</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">message</span><span class="p">,</span>
+   <span class="n">DBusGMethodInvocation</span> <span class="o">*</span><span class="n">context</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -183,15 +183,15 @@
 7
 8
 9</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">gabble_media_session_error</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">TpSvcMediaSessionHandler</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">iface</span><span class="symbol">,</span>
-<span class="normal">                            </span><span class="usertype">guint</span><span class="normal"> errno</span><span class="symbol">,</span>
-<span class="normal">                            </span><span class="keyword">const</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">message</span><span class="symbol">,</span>
-<span class="normal">                            </span><span class="usertype">DBusGMethodInvocation</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GabbleMediaSession</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GABBLE_MEDIA_SESSION</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">iface</span><span class="symbol">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="kt">void</span>
+<span class="n">gabble_media_session_error</span> <span class="p">(</span><span class="n">TpSvcMediaSessionHandler</span> <span class="o">*</span><span class="n">iface</span><span class="p">,</span>
+                            <span class="n">guint</span> <span class="n">errno</span><span class="p">,</span>
+                            <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">message</span><span class="p">,</span>
+                            <span class="n">DBusGMethodInvocation</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GabbleMediaSession</span> <span class="o">*</span><span class="n">self</span> <span class="o">=</span> <span class="n">GABBLE_MEDIA_SESSION</span> <span class="p">(</span><span class="n">iface</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">/* do stuff with self here */</span></pre></td>
+  <span class="cm">/* do stuff with self here */</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -234,18 +234,18 @@
 10
 11
 12</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">gabble_media_session_error</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">TpSvcMediaSessionHandler</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">iface</span><span class="symbol">,</span>
-<span class="normal">                            </span><span class="usertype">guint</span><span class="normal"> errno</span><span class="symbol">,</span>
-<span class="normal">                            </span><span class="keyword">const</span><span class="normal"> </span><span class="type">char</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">message</span><span class="symbol">,</span>
-<span class="normal">                            </span><span class="usertype">DBusGMethodInvocation</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">context</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">GabbleMediaSession</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">self </span><span class="symbol">=</span><span class="normal"> </span><span class="function">GABBLE_MEDIA_SESSION</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">iface</span><span class="symbol">);</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="kt">void</span>
+<span class="n">gabble_media_session_error</span> <span class="p">(</span><span class="n">TpSvcMediaSessionHandler</span> <span class="o">*</span><span class="n">iface</span><span class="p">,</span>
+                            <span class="n">guint</span> <span class="n">errno</span><span class="p">,</span>
+                            <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">message</span><span class="p">,</span>
+                            <span class="n">DBusGMethodInvocation</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">GabbleMediaSession</span> <span class="o">*</span><span class="n">self</span> <span class="o">=</span> <span class="n">GABBLE_MEDIA_SESSION</span> <span class="p">(</span><span class="n">iface</span><span class="p">);</span>
 
-<span class="normal">  </span><span class="comment">/* do stuff with self here */</span>
+  <span class="cm">/* do stuff with self here */</span>
 
-<span class="normal">  </span><span class="function"><a href="telepathy-glib-svc-media-interfaces.html#tp-svc-media-session-handler-return-from-error">tp_svc_media_session_handler_return_from_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">context</span><span class="symbol">);</span>
-<span class="cbracket">}</span></pre></td>
+  <span class="n">tp_svc_media_session_handler_return_from_error</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -269,8 +269,8 @@
       <tr>
         <td class="listing_lines" align="right"><pre>1
 2</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="telepathy-glib-svc-media-interfaces.html#tp-svc-media-session-handler-emit-new-stream-handler">tp_svc_media_session_handler_emit_new_stream_handler</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">session</span><span class="symbol">,</span>
-<span class="normal">  object_path</span><span class="symbol">,</span><span class="normal"> id</span><span class="symbol">,</span><span class="normal"> media_type</span><span class="symbol">,</span><span class="normal"> <a href="telepathy-glib-enums.html#TP-MEDIA-STREAM-DIRECTION-BIDIRECTIONAL:CAPS">TP_MEDIA_STREAM_DIRECTION_BIDIRECTIONAL</a></span><span class="symbol">);</span></pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">tp_svc_media_session_handler_emit_new_stream_handler</span> <span class="p">(</span><span class="n">session</span><span class="p">,</span>
+  <span class="n">object_path</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">media_type</span><span class="p">,</span> <span class="n">TP_MEDIA_STREAM_DIRECTION_BIDIRECTIONAL</span><span class="p">);</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -301,17 +301,17 @@
 9
 10
 11</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">session_handler_iface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">gpointer</span><span class="normal"> g_iface</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> iface_data</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">TpSvcMediaSessionHandlerClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">klass </span><span class="symbol">=</span>
-<span class="normal">    </span><span class="symbol">(</span><span class="normal"><a href="telepathy-glib-svc-media-interfaces.html#TpSvcMediaSessionHandlerClass">TpSvcMediaSessionHandlerClass</a> </span><span class="symbol">*)</span><span class="normal">g_iface</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="kt">void</span>
+<span class="n">session_handler_iface_init</span> <span class="p">(</span><span class="n">gpointer</span> <span class="n">g_iface</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">iface_data</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">TpSvcMediaSessionHandlerClass</span> <span class="o">*</span><span class="n">klass</span> <span class="o">=</span>
+    <span class="p">(</span><span class="n">TpSvcMediaSessionHandlerClass</span> <span class="o">*</span><span class="p">)</span><span class="n">g_iface</span><span class="p">;</span>
 
-<span class="normal">  </span><span class="function"><a href="telepathy-glib-svc-media-interfaces.html#tp-svc-media-session-handler-implement-error">tp_svc_media_session_handler_implement_error</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">klass</span><span class="symbol">,</span>
-<span class="normal">      gabble_media_session_error</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function"><a href="telepathy-glib-svc-media-interfaces.html#tp-svc-media-session-handler-implement-ready">tp_svc_media_session_handler_implement_ready</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">klass</span><span class="symbol">,</span>
-<span class="normal">      gabble_media_session_ready</span><span class="symbol">);</span>
-<span class="cbracket">}</span></pre></td>
+  <span class="n">tp_svc_media_session_handler_implement_error</span> <span class="p">(</span><span class="n">klass</span><span class="p">,</span>
+      <span class="n">gabble_media_session_error</span><span class="p">);</span>
+  <span class="n">tp_svc_media_session_handler_implement_ready</span> <span class="p">(</span><span class="n">klass</span><span class="p">,</span>
+      <span class="n">gabble_media_session_ready</span><span class="p">);</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -338,18 +338,18 @@
 10
 11
 12</pre></td>
-        <td class="listing_code"><pre class="programlisting"><span class="keyword">static</span><span class="normal"> </span><span class="type">void</span>
-<span class="function">session_handler_iface_init</span><span class="normal"> </span><span class="symbol">(</span><span class="usertype">gpointer</span><span class="normal"> g_iface</span><span class="symbol">,</span><span class="normal"> </span><span class="usertype">gpointer</span><span class="normal"> iface_data</span><span class="symbol">)</span>
-<span class="cbracket">{</span>
-<span class="normal">  </span><span class="usertype">TpSvcMediaSessionHandlerClass</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">klass </span><span class="symbol">=</span>
-<span class="normal">    </span><span class="symbol">(</span><span class="normal"><a href="telepathy-glib-svc-media-interfaces.html#TpSvcMediaSessionHandlerClass">TpSvcMediaSessionHandlerClass</a> </span><span class="symbol">*)</span><span class="normal">g_iface</span><span class="symbol">;</span>
+        <td class="listing_code"><pre class="programlisting"><span class="k">static</span> <span class="kt">void</span>
+<span class="n">session_handler_iface_init</span> <span class="p">(</span><span class="n">gpointer</span> <span class="n">g_iface</span><span class="p">,</span> <span class="n">gpointer</span> <span class="n">iface_data</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">TpSvcMediaSessionHandlerClass</span> <span class="o">*</span><span class="n">klass</span> <span class="o">=</span>
+    <span class="p">(</span><span class="n">TpSvcMediaSessionHandlerClass</span> <span class="o">*</span><span class="p">)</span><span class="n">g_iface</span><span class="p">;</span>
 
-<span class="preproc">#define</span><span class="normal"> </span><span class="function">IMPLEMENT</span><span class="symbol">(</span><span class="normal">x</span><span class="symbol">)</span><span class="normal"> tp_svc_media_session_handler_implement_##</span><span class="function">x</span><span class="normal"> </span><span class="symbol">(\</span>
-<span class="normal">    klass</span><span class="symbol">,</span><span class="normal"> gabble_media_session_##x</span><span class="symbol">)</span>
-<span class="normal">  </span><span class="function">IMPLEMENT</span><span class="symbol">(</span><span class="normal">error</span><span class="symbol">);</span>
-<span class="normal">  </span><span class="function">IMPLEMENT</span><span class="symbol">(</span><span class="normal">ready</span><span class="symbol">);</span>
-<span class="preproc">#undef</span><span class="normal"> IMPLEMENT</span>
-<span class="cbracket">}</span></pre></td>
+<span class="cp">#define IMPLEMENT(x) tp_svc_media_session_handler_implement_##x (\</span>
+<span class="cp">    klass, gabble_media_session_##x)</span>
+  <span class="n">IMPLEMENT</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+  <span class="n">IMPLEMENT</span><span class="p">(</span><span class="n">ready</span><span class="p">);</span>
+<span class="cp">#undef IMPLEMENT</span>
+<span class="p">}</span></pre></td>
       </tr>
     </tbody>
   </table>
@@ -363,7 +363,6 @@
   </p>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.19</div>
+<hr>Generated by GTK-Doc V1.32</div>
 </body>
 </html>
