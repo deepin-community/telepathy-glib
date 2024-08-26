@@ -11,7 +11,7 @@ AC_PREREQ([2.60])
 
 m4_define([tp_glib_major_version], [0])
 m4_define([tp_glib_minor_version], [24])
-m4_define([tp_glib_micro_version], [1])
+m4_define([tp_glib_micro_version], [2])
 m4_define([tp_glib_nano_version], [0])
 
 # If library source has changed since last release, increment revision
@@ -46,7 +46,7 @@ AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([1.11 -Wno-portability subdir-objects])
 AC_CONFIG_HEADERS(config.h)
 
-AM_SILENT_RULES
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 dnl check for tools
 AC_PROG_CC

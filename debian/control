@@ -16,7 +16,7 @@ Build-Depends: dbus,
                libgirepository1.0-dev (>= 0.9.6),
                libglib2.0-dev (>= 2.36),
                pkg-config,
-               python2,
+               python3,
                valac (>= 0.16),
                xsltproc
 Build-Depends-Indep: libdbus-glib-1-doc <!nodoc>, libglib2.0-doc <!nodoc>

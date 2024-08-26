@@ -1,3 +1,17 @@
+telepathy-glib (0.24.2-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release.
+    - Port scripts to Python 3 (Closes: #938638)
+  * debian/patches:
+    - python2-shebang.patch: No longer needed
+    - python3-shebang.patch: Point a shebang used during tests to
+      /usr/bin/python3
+    - 0001-Don-t-use-the-same-test-name-for-multiple-tests.patch: Fixed
+      upstream
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Mon, 15 Aug 2022 19:04:20 +0200
+
 telepathy-glib (0.24.1-3) unstable; urgency=medium
 
   * debian/control: Update the Vcs-* fields, the repository has moved to salsa
