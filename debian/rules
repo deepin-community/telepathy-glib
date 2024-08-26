@@ -47,7 +47,7 @@ override_dh_missing:
 # documentation files stay at the same location as before otherwise that
 # doesn't play well with the "--link-doc" option after debhelper compat update
 override_dh_installdocs:
-	dh_installdocs -a --link-doc=libtelepathy-glib0
+	dh_installdocs -a --link-doc=libtelepathy-glib0t64
 	dh_installdocs -p libtelepathy-glib-doc --doc-main-package=libtelepathy-glib-doc
 
 override_dh_installexamples:
