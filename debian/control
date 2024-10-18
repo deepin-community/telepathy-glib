@@ -24,10 +24,7 @@ Vcs-Git: https://salsa.debian.org/telepathy-team/telepathy-glib.git
 Vcs-Browser: https://salsa.debian.org/telepathy-team/telepathy-glib
 Homepage: https://telepathy.freedesktop.org/wiki/
 
-Package: libtelepathy-glib0t64
-Provides: ${t64:Provides}
-Replaces: libtelepathy-glib0
-Breaks: libtelepathy-glib0 (<< ${source:Version})
+Package: libtelepathy-glib0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Pre-Depends: ${misc:Pre-Depends}
@@ -44,7 +41,7 @@ Description: Telepathy framework - GLib library
 Package: libtelepathy-glib-dev
 Architecture: any
 Section: libdevel
-Depends: libtelepathy-glib0t64 (= ${binary:Version}),
+Depends: libtelepathy-glib0 (= ${binary:Version}),
          gir1.2-telepathyglib-0.12 (= ${binary:Version}),
          libglib2.0-dev (>= 2.32),
          libdbus-1-dev (>= 0.95),
